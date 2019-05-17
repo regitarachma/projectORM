@@ -133,19 +133,18 @@ public class EmployeeDAO implements IEmployeeDAO {
     public boolean delete(int employeeId) {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         boolean result = false;
-        session = sessionFactory.openSession();
-        transaction = session.beginTransaction();
         try {
+            session = sessionFactory.openSession();
+            transaction = session.beginTransaction();
+
             session.delete(new Employee(employeeId));
             transaction.commit();
             result = true;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception ex) {
             if (transaction != null) {
                 transaction.rollback();
             }
-            System.out.println(e.getMessage());
-
+            ex.printStackTrace();
         } finally {
             session.close();
         }

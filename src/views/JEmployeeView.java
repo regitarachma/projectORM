@@ -273,7 +273,6 @@ public class JEmployeeView extends javax.swing.JInternalFrame {
             }
         });
 
-        txtEmpId.setEditable(false);
         txtEmpId.setText("0");
 
         cmbJobId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "JobID" }));
