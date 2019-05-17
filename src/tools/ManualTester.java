@@ -6,6 +6,7 @@ import controllers.EmployeeController;
 import controllers.LocationController;
 import daos.CountryDAO;
 import daos.EmployeeDAO;
+import daos.GeneralDAO;
 import daos.LocationDAO;
 import daos.RegionDAO;
 import entities.Country;
@@ -30,8 +31,31 @@ public class ManualTester {
 //        CountryDAO countryDAO = new CountryDAO(sessionFactory);
 //        EmployeeDAO employeeDAO = new EmployeeDAO(sessionFactory);
         
-        MainFrameView mfv = new MainFrameView();
-        mfv.setVisible(true);
+//        MainFrameView mfv = new MainFrameView();
+//        mfv.setVisible(true);
+
+        //
+        GeneralDAO<Country> cdao = new GeneralDAO<>(Country.class, sessionFactory);
+//        for (Country c : cdao.getData("IN", true)) {
+//            System.out.println(c.getCountryId()+" "+c.getCountryName()+" "+c.getRegionId().getRegionName());
+//        }
+        for (Country c : cdao.getData("ZZ", false)) {
+            System.out.println(c.getCountryId()+" "+c.getCountryName()+" "+c.getRegionId().getRegionName());
+        }
+//        for (Country c : cdao.getData("erman", true)) {
+//            System.out.println(c.getCountryId()+" "+c.getCountryName()+" "+c.getRegionId().getRegionName());
+//        }
+
+
+        //saveOrDelete region pada GeneralDAO = false untuk del, true untuk save/update
+//        GeneralDAO<Region> rdAO = new GeneralDAO<>(sessionFactory);
+//        Region region = new Region(new BigDecimal(6), "Sekarang");
+//        System.out.println(rdAO.saveOrDelete(region, false));
+
+        //insert region pada GeneralDAO
+//        GeneralDAO<Region> rdAO = new GeneralDAO<>(sessionFactory);
+//        Region region = new Region(new BigDecimal(0), "Hawai");
+//        System.out.println(rdAO.save(region));
         
         //insert country dao
 //        Country country = new Country("ZZ", "Denmark", new Region(new BigDecimal(3)));
