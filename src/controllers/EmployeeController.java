@@ -53,7 +53,7 @@ public class EmployeeController implements IEmployeeController {
     @Override
     public String delete(String employeeId) {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        String result = "Maaf data gagal dihapus";
+        String result = "Maaf data tidak bisa dihapus";
         if (iedao.delete(Integer.parseInt(employeeId))) {
             result = "Data berhasil dihapus";
         }
