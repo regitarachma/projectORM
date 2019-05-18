@@ -3,6 +3,7 @@ package tools;
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import controllers.CountryController;
 import controllers.EmployeeController;
+import controllers.GeneralController;
 import controllers.LocationController;
 import daos.CountryDAO;
 import daos.EmployeeDAO;
@@ -13,6 +14,7 @@ import entities.Country;
 import entities.Employee;
 import entities.Location;
 import entities.Region;
+import icontrollers.IGeneralController;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -34,18 +36,17 @@ public class ManualTester {
 //        MainFrameView mfv = new MainFrameView();
 //        mfv.setVisible(true);
 
-        //
-        GeneralDAO<Country> cdao = new GeneralDAO<>(Country.class, sessionFactory);
+        //General DAO saveDelete
+//        GeneralDAO<Country> cdao = new GeneralDAO<>(Country.class, sessionFactory);
 //        for (Country c : cdao.getData("IN", true)) {
 //            System.out.println(c.getCountryId()+" "+c.getCountryName()+" "+c.getRegionId().getRegionName());
 //        }
-        for (Country c : cdao.getData("ZZ", false)) {
-            System.out.println(c.getCountryId()+" "+c.getCountryName()+" "+c.getRegionId().getRegionName());
-        }
+//        for (Country c : cdao.getData("ZZ", false)) {
+//            System.out.println(c.getCountryId()+" "+c.getCountryName()+" "+c.getRegionId().getRegionName());
+//        }
 //        for (Country c : cdao.getData("erman", true)) {
 //            System.out.println(c.getCountryId()+" "+c.getCountryName()+" "+c.getRegionId().getRegionName());
 //        }
-
 
         //saveOrDelete region pada GeneralDAO = false untuk del, true untuk save/update
 //        GeneralDAO<Region> rdAO = new GeneralDAO<>(sessionFactory);
@@ -56,6 +57,22 @@ public class ManualTester {
 //        GeneralDAO<Region> rdAO = new GeneralDAO<>(sessionFactory);
 //        Region region = new Region(new BigDecimal(0), "Hawai");
 //        System.out.println(rdAO.save(region));
+
+        //General Controller GetAll
+//        IGeneralController<Country> cdao = new GeneralController<>(Country.class, sessionFactory);
+//        for (Country c : cdao.getAll()) {
+//            System.out.println(c.getCountryId()+" "+c.getCountryName()+" "+c.getRegionId().getRegionName());
+//        }
+
+        //insert GENERAL Controller
+        int id_region = 7;
+        IGeneralController<Country> cdao = new GeneralController<>(Country.class, sessionFactory);
+//          IGeneralController<Region> rdao = new GeneralController<>(Region.class, sessionFactory);
+          
+//          System.out.println(rdao.save(new Region(new BigDecimal(id_region), "General Region")));
+        System.out.println(cdao.save(new Country("IA", "Indonesia", new Region(new BigDecimal(id_region)))));
+        
+//====================================================================================================================
         
         //insert country dao
 //        Country country = new Country("ZZ", "Denmark", new Region(new BigDecimal(3)));
