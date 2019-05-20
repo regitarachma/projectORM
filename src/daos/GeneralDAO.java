@@ -47,7 +47,7 @@ public class GeneralDAO<T> implements IGeneralDAO<T> {
             
             if(isGetById){
                 Query query = session.createQuery("FROM " + general.getSimpleName() + " WHERE "
-                + general.getSimpleName().toLowerCase() +"Id=:keyword ORDER BY 1");
+                + general.getSimpleName().toLowerCase() +"_id=:keyword ORDER BY 1");
                 query.setParameter("keyword", key);
                 list = query.list();
             } else {

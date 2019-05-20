@@ -36,15 +36,15 @@ public class ManualTester {
 //        MainFrameView mfv = new MainFrameView();
 //        mfv.setVisible(true);
 
-        //General DAO saveDelete
+        //General DAO search by ID menggunakan kondisi true
 //        GeneralDAO<Country> cdao = new GeneralDAO<>(Country.class, sessionFactory);
-//        for (Country c : cdao.getData("IN", true)) {
+//        for (Country c : cdao.getData("IA", true)) {
 //            System.out.println(c.getCountryId()+" "+c.getCountryName()+" "+c.getRegionId().getRegionName());
 //        }
-//        for (Country c : cdao.getData("ZZ", false)) {
-//            System.out.println(c.getCountryId()+" "+c.getCountryName()+" "+c.getRegionId().getRegionName());
-//        }
-//        for (Country c : cdao.getData("erman", true)) {
+
+        //general DAO by name menggunakan kondisi false
+//        GeneralDAO<Country> cdao = new GeneralDAO<>(Country.class, sessionFactory);
+//        for (Country c : cdao.getData("India", false)) {
 //            System.out.println(c.getCountryId()+" "+c.getCountryName()+" "+c.getRegionId().getRegionName());
 //        }
 
@@ -53,24 +53,35 @@ public class ManualTester {
 //        Region region = new Region(new BigDecimal(6), "Sekarang");
 //        System.out.println(rdAO.saveOrDelete(region, false));
 
-        //insert region pada GeneralDAO
+        //saveOrDelete dgn kondisi insert region pada GeneralDAO
 //        GeneralDAO<Region> rdAO = new GeneralDAO<>(sessionFactory);
 //        Region region = new Region(new BigDecimal(0), "Hawai");
 //        System.out.println(rdAO.save(region));
 
         //General Controller GetAll
-//        IGeneralController<Country> cdao = new GeneralController<>(Country.class, sessionFactory);
-//        for (Country c : cdao.getAll()) {
+//        IGeneralController<Country> igcC = new GeneralController<>(Country.class, sessionFactory);
+//        for (Country c : igcC.getAll()) {
 //            System.out.println(c.getCountryId()+" "+c.getCountryName()+" "+c.getRegionId().getRegionName());
 //        }
 
+        //General COntroller GetByID
+        IGeneralController<Region> igcR = new GeneralController<>(Region.class, sessionFactory);
+//        IGeneralController<Country> igcC = new GeneralController<>(Country.class, sessionFactory);
+//        for (Country c : igcC.getById("SB")) {
+//            System.out.println(c.getCountryId()+" "+c.getCountryName()+" "+c.getRegionId().getRegionName());
+//        }
+
+        for (Region r : igcR.getById("25")) {
+            System.out.println(r.getRegionId()+" "+r.getRegionName());
+        }
+
         //insert GENERAL Controller
-        int id_region = 7;
-        IGeneralController<Country> cdao = new GeneralController<>(Country.class, sessionFactory);
-//          IGeneralController<Region> rdao = new GeneralController<>(Region.class, sessionFactory);
+//        int id_region = 25;
+//          IGeneralController<Region> igcR = new GeneralController<>(Region.class, sessionFactory);
+//        IGeneralController<Country> igcC = new GeneralController<>(Country.class, sessionFactory);
           
-//          System.out.println(rdao.save(new Region(new BigDecimal(id_region), "General Region")));
-        System.out.println(cdao.save(new Country("IA", "Indonesia", new Region(new BigDecimal(id_region)))));
+//          System.out.println(igcR.save(new Region(new BigDecimal(id_region), "General Region II")));
+//        System.out.println(igcC.save(new Country("SB", "Selandia Baru", new Region(new BigDecimal(id_region)))));
         
 //====================================================================================================================
         

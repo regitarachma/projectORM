@@ -20,25 +20,21 @@ public class GeneralController<T> implements IGeneralController<T>{
 
     @Override
     public List<T> getAll() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         return igdao.getData("", false);
     }
 
     @Override
     public List<T> getById(String id) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         return igdao.getData(id, true);
     }
 
     @Override
     public List<T> search(String key) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         return igdao.getData(key, false);
     }
 
     @Override
     public String save(T model) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         String result = "Data gagal disimpan";
         if(igdao.saveOrDelete(model, true)){
             result = "Data berhasil disimpan";
@@ -48,7 +44,6 @@ public class GeneralController<T> implements IGeneralController<T>{
 
     @Override
     public String delete(T model) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         String result = "Data gagal dihapus";
         if(igdao.saveOrDelete(model, true)){
             result = "Data berhasil disimpan";
